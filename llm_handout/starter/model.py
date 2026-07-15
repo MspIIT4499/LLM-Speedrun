@@ -15,8 +15,8 @@ class Config:
     n_layer = 2
     n_head = 4
     n_embd = 128
-    dropout = 0.1
-    tie_weights = False   # <- one of many things worth questioning
+    dropout = 0.05
+    tie_weights = True   # <- one of many things worth questioning
 
 
 class SelfAttention(nn.Module):
@@ -71,7 +71,7 @@ class GPT(nn.Module):
     def _init(self, m):
         # baseline init: plain normal, one std for everything
         if isinstance(m, (nn.Linear, nn.Embedding)):
-            nn.init.normal_(m.weight, mean=0.0, std=0.05)
+            nn.init.normal_(m.weight, mean=0.0, std=0.02)
             if isinstance(m, nn.Linear) and m.bias is not None:
                 nn.init.zeros_(m.bias)
 
