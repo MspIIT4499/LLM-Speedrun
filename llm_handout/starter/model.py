@@ -10,12 +10,12 @@ import torch.nn.functional as F
 
 
 class Config:
-    vocab_size = 256      # byte-level tokenizer default
+    vocab_size = 4096
     block_size = 128
-    n_layer = 4
+    n_layer = 2
     n_head = 4
-    n_embd = 160
-    dropout = 0.0
+    n_embd = 128
+    dropout = 0.1
     tie_weights = False   # <- one of many things worth questioning
 
 
